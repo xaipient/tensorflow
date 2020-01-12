@@ -415,8 +415,9 @@ class FuncGraph(ops.Graph):
           yield g
         finally:
           try:
-            for fn in self._scope_exit_callbacks:
-              fn()
+            if self._scope_exit_callbacks:
+              for fn in self._scope_exit_callbacks:
+                fn()
           finally:
             self._scope_exit_callbacks = old_scope_exit_callbacks
             self._distribution_strategy_stack = old_strategy_stack
