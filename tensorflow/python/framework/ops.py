@@ -3361,7 +3361,7 @@ class Graph(object):
     """Common logic for creating an op in this graph."""
     # Apply any additional attributes requested. Do not overwrite any existing
     # attributes.
-    for key, value in self._attr_scope_map.items():
+    for key, value in list(self._attr_scope_map.items()):
       try:
         op.get_attr(key)
       except ValueError:
