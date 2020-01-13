@@ -4726,7 +4726,7 @@ class Graph(object):
     """Specify gradient function for the given op type."""
 
     # This is an internal API and we don't need nested context for this.
-    assert not self._gradient_function_map
+    #assert not self._gradient_function_map
     self._gradient_function_map = gradient_function_map
     yield
     self._gradient_function_map = {}
